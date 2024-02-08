@@ -1,0 +1,91 @@
+:root {
+    --black: #0b0c0c;
+    --light-grey: #f3f2f1;
+    --mid-grey: #b1b4b6;
+    font-family: 'DM Sans', sans-serif;
+    /* font-family: 'Work Sans', sans-serif; */
+}
+
+
+/* nav */
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--light-grey); /* Adjust the color and size according to your design */
+}
+
+.nav-left-side {
+    /* margin-left: 200px; */
+    display: flex;
+    align-items: center;
+}
+
+.nav-right-side {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right-side .nav-right-link-spacing {
+    margin-right: 34px;
+}
+
+.nav-right-side .nav-right-side-link {
+    font-weight: bold;
+    color: #6d6d6d;
+}
+
+.nav-right-side .nav-right-side-link:hover {
+    color: var(--black);
+}
+
+.nav-brand-link {
+    /* just trying a unique font to separate this from the regular stuff */
+    font-family: 'Protest Revolution', sans-serif; 
+    font-size: 24px;
+    color: var(--black);
+}
+
+a {
+    /* Remove text decoration */
+    text-decoration: none;
+    
+    /* Remove default link color */
+    color: inherit;
+    
+    /* Reset cursor */
+    cursor: pointer;
+    
+    /* Reset any other styles */
+    /* For example, reset font styles */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* HERO */
+.hero {
+    width: 80%;
+    margin: 0 auto;
+    /* margin-top: 17px; */
+}
+
+.hero-image {
+    height: 440px;
+    background-image: url(<%= asset_path 'hero.jpg' %>);
+    background-size: cover;
+}
+
+.hero-text-container {
+    
+    position: absolute;
+    top: 168px;
+    background-color: white;
+    width: 408px;
+    height: 268px;
+    left: 259px;
+    border-radius: 6px;
+    padding: 13px;
+
+}
