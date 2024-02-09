@@ -6,11 +6,34 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Protest+Revolution&family=Work+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "normalize", media: "all" %>
+    <%= stylesheet_link_tag "style", media: "all" %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <nav>
+        <div class="nav-left-side">
+            <%= link_to "Crime Report | KE", root_path, class: "nav-brand-link" %>
+        </div>
+        <div class="nav-right-side">
+            <%= link_to 'Report a crime', new_report_path, class: "nav-right-side-link nav-right-link-spacing" %>
+            <%= link_to "Check Reports", reports_path, class: "nav-right-side-link nav-right-link-spacing" %>
+            <%= link_to "About", about_path, class: "nav-right-side-link nav-right-link-spacing" %>
+            <% if user_signed_in? %>
+                 <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
+                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
+            <% else %>
+                <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %>
+            <% end %>
+        </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

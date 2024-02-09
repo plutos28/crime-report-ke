@@ -1,0 +1,26 @@
+<%= form_with(model: @report, local: true) do |form| %>
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+  
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  
+    <div>
+      <%= form.label :photo %>
+      <%= form.file_field :photo %>
+    </div>
+  
+    <div>
+      <%= form.label :type_of_crime %>
+      <%= form.text_field :type_of_crime %>
+    </div>
+  
+    <div>
+      <%= form.submit 'Submit' %>
+    </div>
+  <% end %>
+  
