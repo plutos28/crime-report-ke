@@ -19,16 +19,23 @@
             <a href="" class="nav-right-side-link nav-right-link-spacing">Report a crime</a>
             <a href="" class="nav-right-side-link nav-right-link-spacing">Check Reports</a>
             <a href="" class="nav-right-side-link nav-right-link-spacing">About</a>
-            <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
-            <a href="" class="nav-right-side-link">Signup</a>
+            <% if user_signed_in? %>
+                 <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
+                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
+            <% else %>
+                <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %>
+            <% end %>
+
+           
         </div>
     </nav>
     <div class="hero">
         <div class="hero-image"></div>
         <div class="hero-text-container">
             <h1>Empower Your Community Against Crime</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium facilis, sapiente suscipit fugit iusto similique. Commodi dolorum eveniet consectetur eaque, nihil dolor harum hic, accusamus, molestias beatae ex animi ipsum!</p>
-            <button>Go Somewhere</button>
+            <p>Join a community dedicated to preventing and reporting crime. By sharing information and staying vigilant, we can build safer communities for everyone. Start making a difference today.</p>
+            <button>Report Now</button>
         </div>
     </div>
 </body>
