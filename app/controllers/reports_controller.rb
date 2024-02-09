@@ -15,6 +15,10 @@ class ReportsController < ApplicationController
           render :new
       end
     end
+
+    def show
+      @report = Report.find(params[:id])
+    end
     
     private
       def report_params
