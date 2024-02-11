@@ -111,16 +111,49 @@ a {
 }
 
 .login-page .new_user {
-
+    margin-top: 10px;
 }
 
 .login-page-brand-link {
     font-weight: bold;
     font-size: 34px;
+    margin-bottom: 20px;
 }
 
 .login-page-form-title {
     font-size: 20px;
+}
+
+.login-page .input-block-password {
+    margin-top: 12px;
+}
+
+.login-remember-me-block {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.login-remember-me-block input[type=checkbox] {
+    width: 26px;
+    height: 26px;
+}
+
+.login-remember-me-block label {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.login-page-submit-block input[type="submit"] {
+    width: 100%;
+    padding: 17px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2f8c61;
+    color: #d4fdeb;
 }
 
 <%# floating input label %>
@@ -133,8 +166,8 @@ div.input-block input {
   color: #495055;
   width: 350px;
   padding: 15px 15px;
-  border-radius: 1rem;
-  border: 2px solid  #D9D9D9;
+  border-radius: 8px;
+  border: 1px solid  #D9D9D9;
   outline:none;
 }
 div.input-block span.placeholder {
@@ -142,12 +175,12 @@ div.input-block span.placeholder {
   margin: 17px 0;
   padding: 0 4px;
   font-family: 'DM Sans', sans-serif;
-  color:  #6c757d;
+  color:  #9ea1a3;
   display: flex;
   align-items: center;
-  font-size: 1.6rem;
-  top: 0;
-  left: 17px;
+  font-size: 20px;
+  top: 3px;
+  left: 16px;
   transition: all 0.2s;
   transform-origin: 0% 0%;
   background: none;
