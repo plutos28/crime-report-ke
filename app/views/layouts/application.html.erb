@@ -17,23 +17,27 @@
   </head>
 
   <body>
-    <nav>
-        <div class="nav-left-side">
-            <%= link_to "Crime Report | KE", root_path, class: "nav-brand-link" %>
-        </div>
-        <div class="nav-right-side">
-            <%= link_to 'Report a crime', new_report_path, class: "nav-right-side-link nav-right-link-spacing" %>
-            <%= link_to "Check Reports", reports_path, class: "nav-right-side-link nav-right-link-spacing" %>
-            <%= link_to "About", about_path, class: "nav-right-side-link nav-right-link-spacing" %>
-            <% if user_signed_in? %>
-                 <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
-                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
-            <% else %>
-                <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
-                <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %>
-            <% end %>
-        </div>
-    </nav>
+     <% if !current_page?(controller: 'devise/sessions', action: 'new') && !current_page?(controller: 'devise/registrations', action: 'new') %>
+        <!-- Render navigation only if not on login or signup pages -->
+        <nav>
+            <div class="nav-left-side">
+                <%= link_to "Crime Report | KE", root_path, class: "nav-brand-link" %>
+            </div>
+            <div class="nav-right-side">
+                <%= link_to 'Report a crime', new_report_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <%= link_to "Check Reports", reports_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <%= link_to "About", about_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <% if user_signed_in? %>
+                     <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
+                     <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
+                <% else %>
+                    <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                    <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %>
+                <% end %>
+            </div>
+        </nav>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
