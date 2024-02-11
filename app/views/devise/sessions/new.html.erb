@@ -1,0 +1,30 @@
+<div class="login-page">
+  <%= link_to "Crime Report | KE", root_path, class: "login-page-brand-link" %>
+  <h2 class="login-page-form-title">Log into your account</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field input-block">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-text", required: true %>
+      <span class="placeholder">Email</span>
+    </div>
+
+    <div class="field input-block">
+      <%= f.password_field :password, autocomplete: "current-password", class: "input-text", required: true %>
+      <span class="placeholder">Password</span>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+
