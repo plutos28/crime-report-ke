@@ -18,7 +18,7 @@
   </head>
 
   <body>
-     <% if !current_page?(controller: 'devise/sessions', action: 'new') && !current_page?(controller: 'devise/registrations', action: 'new') %>
+    <% if !devise_controller? %>
         <!-- Render navigation only if not on login or signup pages -->
         <nav>
             <div class="nav-left-side">
