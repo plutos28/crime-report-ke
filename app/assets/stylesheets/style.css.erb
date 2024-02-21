@@ -74,7 +74,7 @@ a {
 }
 
 .hero-image {
-    height: 440px;
+    height: 490px;
     background-image: url(<%= asset_path 'hero.jpg' %>);
     background-size: cover;
 }
@@ -85,11 +85,16 @@ a {
     top: 168px;
     background-color: white;
     width: 408px;
-    height: 268px;
+    height: 318px;
     left: 259px;
-    border-radius: 6px;
-    padding: 13px;
+    border-radius: 8px;
+    padding: 30px;
 
+}
+
+.hero-text-container-description {
+    line-height: 1.5;
+    font-size: 18px;
 }
 
 .hero-btn { 
@@ -235,6 +240,13 @@ main {
     font-size: 24px;
 }
 
+.feature-list-container .feature-list-img {
+    width: 180px;
+    height: 120px;
+    background-size: cover;
+    background-image: url(<%= asset_path 'data2.jpg' %>);
+}
+
 .feature-list-container .feature {
     font-size: 16px;
     color: #404040;
@@ -244,6 +256,7 @@ main {
 
 .feature-list-container .feature-list {
     padding-left: 18px;
+    width: 20em;
 }
 
 hr {
