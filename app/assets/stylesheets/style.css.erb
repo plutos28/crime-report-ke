@@ -225,15 +225,24 @@ main {
 }
 
 .feature-container .feature-subtitle {
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.feature-container .feature-description {
+    width: 50em;
+    line-height: 1.5;
     color: #404040;
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.5;
 }
 
 .feature-container .features {
     display: flex;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
 .feature-list-container .feature-list-title {
@@ -355,4 +364,72 @@ hr {
     height: 100vh; /* Example height */
     /* Additional styling as needed */
     width: 80%;
+}
+
+/* footer section */
+footer {
+    /* green color */
+    background-color: #f3efed;
+    /* black color */
+    /* background-color: #222; */
+    /* orange color */
+    /* background-color: #ce5d23; */
+    margin-top: 16px;
+    font-size: 2.5vh;
+}
+
+footer .first-row {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+footer .social-medias {
+
+    display: flex;
+    margin: 16px 16px;
+    flex-wrap: wrap;
+}
+
+footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: clamp(16px, 1.4vw, 18px);
+}
+
+footer .footer-links .separator {
+    color: #1a1a1a;
+    padding: 0 0.8vw;
+}
+
+footer .footer-contact {
+    /* green color */
+    background-color: #c5c5c5;
+    /* black color */
+    /* background-color: black; */
+    /* orange color */
+    /* background-color: #802912; */
+    color: #1a1a1a;
+    line-height: 1.6rem;
+    padding-left: 16px;    
+    display: flex;
+    justify-content: space-around;
+    height: 5vh;
+    align-items: center;
+}
+
+footer .footer-contact p {
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+footer .icon {
+    color: #1a1a1a;
+    padding: 0 0.5vh;
 }
