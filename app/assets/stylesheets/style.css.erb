@@ -44,7 +44,9 @@ nav {
     /* just trying a unique font to separate this from the regular stuff */
     font-size: 24px;
     font-family: 'DM Sans', sans-serif;
-    color: var(--black);
+    color: #135e3b;
+    font-weight: bold;
+    
 }
 
 a {
@@ -91,7 +93,7 @@ a {
 }
 
 .hero-btn { 
-    background-color: #2f8c61;
+    background-color: #404040;
     padding: 15px 36px;
     border-radius: 10px;
     color: #f1f9f6;
@@ -126,6 +128,10 @@ a {
 
 .login-page .input-block-password {
     margin-top: 12px;
+}
+
+.login-page .password-confirm {
+    margin-bottom: 15px;
 }
 
 .login-remember-me-block {
@@ -197,4 +203,143 @@ div.input-block input:focus{
 }
 div.input-block input:focus + span.placeholder {
   color: #284B63;
+}
+
+main {
+    padding-left: 259px;
+    padding-right: 259px;
+}
+
+.feature-container {
+    padding-bottom: 50px;
+}
+
+.feature-container .feature-title {
+    font-size: 35px;
+    color: #2f8c61;
+}
+
+.feature-container .feature-subtitle {
+    color: #404040;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.feature-container .features {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature-list-container .feature-list-title {
+    font-size: 24px;
+}
+
+.feature-list-container .feature {
+    font-size: 16px;
+    color: #404040;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.feature-list-container .feature-list {
+    padding-left: 18px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e6dfda;
+    clear: both;
+    margin: 5px 0 30px;
+    padding: 0;
+}
+
+.text-section1 {
+
+    margin-top: 73px;
+    margin-bottom: 73px;
+    padding-right: 166px;
+
+}
+
+.text-section1-title {
+
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+
+}
+
+.text-section1-text {
+
+    font-size: 16px;
+    color: #404040;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 15px;
+
+}
+
+.text-section1-img {
+    width: 800px;
+    height: 500px;
+    background-size: cover;
+    background-image: url(<%= asset_path 'data2.jpg' %>);
+}
+
+.report-form-container {
+    padding-left: 166px;
+    margin-top: 73px;
+    margin-bottom: 73px;
+    padding-right: 166px;
+}
+
+.report-form-container h1 {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+}
+
+.report-form-container h2 {
+    font-size: 16px;
+    color: #404040;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 15px;
+}
+
+.report-form-container label {
+    font-size: 16px;
+    color: #404040;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.report-form-container input[type="submit"] {
+    background-color: #404040;
+    padding: 9px 20px;
+    border-radius: 10px;
+    color: #f1f9f6;
+    font-size: 16px;
+    /* margin-top: 27px; */
+    display: block;
+    margin-top: 21px;
+    width: 100px;
+    border: none;
+}
+
+#map { 
+    width: 700px; /* Example width */
+    height: 500px; /* Example height */
+    /* Additional styling as needed */
+ }
+
+.reports-page-container {
+    margin-top: 40px;
+    margin-left: 160px;
+    display: flex;
+    justify-content: space-evenly; /* Align items to the end (right side) */
+    height: 100vh; /* Example height */
+    /* Additional styling as needed */
+    width: 80%;
 }

@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+    before_action :authenticate_user!
+
     def index 
         @reports = Report.all
     end
@@ -12,7 +14,7 @@ class ReportsController < ApplicationController
       if @report.save
           redirect_to @report, notice: 'Report was successfully created.'
       else
-          render :new
+          render :new, status: :unprocessable_entity
       end
     end
 

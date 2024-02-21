@@ -1,9 +1,16 @@
-<h1>All Reports</h1>
+<div class="reports-page-container">
+  <div class="reports-list">
+    <h1>All Reports</h1>
 
-<ul>
-  <% @reports.each do |report| %>
-    <li>
-      <%= report.title %>
-    </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @reports.each do |report| %>
+        <li>
+          <%= link_to report.title, report_path(report) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+ 
+   <div id="map"></div>
+
+</div>

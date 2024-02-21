@@ -10,6 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Protest+Revolution&family=Work+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
     <%= stylesheet_link_tag "normalize", media: "all" %>
     <%= stylesheet_link_tag "style", media: "all" %>
 
@@ -33,7 +41,11 @@
                      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
                 <% else %>
                     <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
-                    <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %>
+                    <%
+=begin%>
+ <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %> 
+<%
+=end%>
                 <% end %>
             </div>
         </nav>

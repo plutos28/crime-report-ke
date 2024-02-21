@@ -1,26 +1,35 @@
-<%= form_with(model: @report, local: true) do |form| %>
+<div class="report-form-container">
+    <h1>Report Crime</h1>
+    <h2>Reporting a Crime: Your Information Can Make a Difference - Help Us Keep Our Community Safe by Providing Details About Incidents You've Witnessed or Experienced.</h2>
+
+
+    <%= form_with(model: @report, local: true) do |form| %>
     <div>
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
-  
+
     <div>
       <%= form.label :description %>
       <%= form.text_area :description %>
     </div>
-  
+
     <div>
       <%= form.label :photo %>
       <%= form.file_field :photo %>
     </div>
-  
+
+   
+
     <div>
       <%= form.label :type_of_crime %>
-      <%= form.text_field :type_of_crime %>
+      <%= form.select :type_of_crime, options_for_select(['Theft', 'Assault', 'Burglary', 'Robbery', 'Fraud', 'Vandalism']) %>
     </div>
-  
+
+    <hr>
+
     <div>
-      <%= form.submit 'Submit' %>
+      <%= form.submit 'Report' %>
     </div>
   <% end %>
-  
+</div>

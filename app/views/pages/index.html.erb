@@ -10,9 +10,55 @@
         <div class="hero-image"></div>
         <div class="hero-text-container">
             <h1>Empower Your Community Against Crime</h1>
-            <p>Join a community dedicated to preventing and reporting crime. By sharing information and staying vigilant, we can build safer communities for everyone. Start making a difference today.</p>
+            <p class="hero-text-container-description">Join a community dedicated to preventing and reporting crime. By sharing information and staying vigilant, we can build safer communities for everyone. Start making a difference today.</p>
             <%= link_to 'Report Now', new_report_path, class: "hero-btn" %>
+            <%
+=begin%>
+ <p class="hero-text-container-location">*Our online crime reporting system currently operates in Kenya.</p>   
+<%
+=end%>
         </div>
     </div>
+    <main>
+        <div class="feature-container">
+            <h1 class="feature-title">Report Crime Online</h1>
+            <h2 class="feature-subtitle">Effortlessly report crimes using our online crime reporting system.</h2>
+            <div class="features">
+                <div class="feature-list-container">
+                    <h1 class="feature-list-title">Anonymous Reporting</h1>
+                    <ul class="feature-list">
+                        <li class="feature">Report crimes anonymously</li>
+                        <li class="feature">Protect your identity</li>
+                        <li class="feature">Ensure confidentiality</li>
+                    </ul>
+                </div>
+                <div class="feature-list-container">
+                    <h1 class="feature-list-title">Real-time Updates</h1>
+                    <ul class="feature-list">
+                        <li class="feature">Get real-time updates on your reported crimes</li>
+                        <li class="feature">Track the progress of investigations</li>
+                        <li class="feature">Stay informed about developments</li>
+                    </ul>
+                </div>
+                <div class="feature-list-container">
+                    <h1 class="feature-list-title">Secure Platform</h1>
+                    <ul class="feature-list">
+                        <li class="feature">Utilize our secure reporting platform</li>
+                        <li class="feature">Encrypt sensitive information</li>
+                        <li class="feature">Maintain data integrity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="text-section1">
+            <h1 class="text-section1-title">Harnessing Data for Safer Communities</h1>
+            <p class="text-section1-text">Our online crime reporting system collects and analyzes data to empower law enforcement agencies and communities in preventing and addressing crime effectively. By leveraging advanced data collection techniques, we compile comprehensive reports on reported incidents, patterns, and trends.</p>
+            <p class="text-section1-text">Through sophisticated data analysis algorithms, we identify emerging threats, hotspot areas, and recurring criminal activities. This data-driven approach enables us to allocate resources strategically, enhance situational awareness, and tailor crime prevention strategies to specific community needs.</p>
+            <div class="text-section1-img"></div>
+        </div>
+    </main>
 </body>
 </html>
