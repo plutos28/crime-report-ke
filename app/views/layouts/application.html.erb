@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CrimeReportKe</title>
+    <title>Crime Report | Ke</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -40,7 +40,7 @@
                      <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
                      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
                 <% else %>
-                    <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                    <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing sign-in-btn" %>
                     <%
 =begin%>
  <%= link_to 'Sign up', new_user_registration_path, class: "nav-right-side-link" %> 

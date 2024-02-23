@@ -23,7 +23,7 @@
 
     <div>
       <%= form.label :type_of_crime %>
-      <%= form.select :type_of_crime, options_for_select(['Theft', 'Assault', 'Burglary', 'Robbery', 'Fraud', 'Vandalism']) %>
+      <%= form.select :type_of_crime, options_for_select(@crimes) %>
     </div>
 
     <hr>

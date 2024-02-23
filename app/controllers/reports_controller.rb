@@ -7,6 +7,43 @@ class ReportsController < ApplicationController
 
     def new
         @report = Report.new
+        @crimes = [
+          # Violent Crimes
+          "Assault",
+          "Battery",
+          "Homicide",
+          "Robbery",
+          "Sexual Assault",
+          "Kidnapping",
+        
+          # Property/Theft Crimes
+          "Burglary",
+          "Theft",
+          "Shoplifting",
+          "Auto Theft",
+          "Arson",
+          "Vandalism",
+        
+          # Disorder/Disturbance Crimes
+          "Public Intoxication",
+          "Disorderly Conduct",
+          "Disturbing the Peace",
+          "Trespassing",
+          "Loitering",
+          "Illegal Parking",
+        
+          # 911-related Incidents
+          "Emergency Medical Assistance",
+          "Fire",
+          "Domestic Violence",
+          "Traffic Accident",
+          "Suspicious Activity",
+          "Missing Person",
+        
+          # Crimes related to Cars
+          "Hit and Run"
+        ]
+        
     end
 
     def create

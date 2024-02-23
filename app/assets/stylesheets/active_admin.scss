@@ -8,10 +8,52 @@
 // $sidebar-width: 242px;
 
 // Active Admin's got SASS!
-@import "active_admin/mixins";
-@import "active_admin/base";
+// @import "active_admin/mixins";
+// @import "active_admin/base";
 
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+#wrapper {
+    font-family: 'DM Sans', sans-serif;
+    padding-left: 259px;
+    padding-right: 259px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+#header .site_title {
+    font-family: 'DM Sans', sans-serif;
+
+}
+
+#login {
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 100px;
+}
+
+#login h2 {
+    font-weight: bold;
+    font-size: 34px;
+}
+
+#login fieldset {
+    border: none;
+}
+
+#login ol {
+    list-style: none;
+}
+
+#login li {
+    font-size: 24px;
+    margin-right: 5px;
+}
