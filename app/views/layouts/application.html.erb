@@ -26,7 +26,7 @@
   </head>
 
   <body>
-    <% if !devise_controller? && !current_page?(new_report_path) %>
+    <% if !devise_controller? && (!current_page?(new_report_path) && !current_page?(reports_path)) %>
         <!-- Render navigation only if not on login or signup pages -->
         <nav>
             <div class="nav-left-side">
