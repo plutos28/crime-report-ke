@@ -11,6 +11,8 @@
 // @import "active_admin/mixins";
 // @import "active_admin/base";
 
+@import "normalize.css";
+
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:
 //
@@ -31,8 +33,35 @@
 }
 
 #header .site_title {
+    font-size: 24px;
     font-family: 'DM Sans', sans-serif;
+    color: #135e3b;
+    font-weight: bold;
+}
 
+.header-item {
+    
+    display: flex;
+    list-style: none;
+
+}
+
+.menu_item {
+    font-weight: bold;
+    color: #6d6d6d;
+    padding-right: 16px;
+}
+
+a {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
+    outline: none; /* Remove outline */
+    /* Additional styles can be added as per your requirement */
+}
+
+
+.nav-right-side .nav-right-side-link:hover {
+    color: var(--black);
 }
 
 #login {

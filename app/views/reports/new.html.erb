@@ -1,4 +1,19 @@
-<div class="report-form-container">
+<div class="logged-in-nav">
+  <div class="logged-in-nav-left-side">
+    <%= link_to "Crime Report | KE", root_path, class: "logged-in-nav-brand-link" %>
+  </div>
+  <div class="logged-in-nav-right-side">
+    <% if user_signed_in? %>
+      <p class="logged-in-nav-right-side-link logged-in-nav-right-side-link-spacing">Logged In: <%= current_user.email %></p>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "logged-in-nav-right-side-link" %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path, class: "logged-in-nav-right-side-link logged-in-nav-right-link-spacing" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="side-panel-with-map">
+  <div class="report-form-container">
     <h1>Report Crime</h1>
     <h2>Reporting a Crime: Your Information Can Make a Difference - Help Us Keep Our Community Safe by Providing Details About Incidents You've Witnessed or Experienced.</h2>
 
@@ -32,4 +47,6 @@
       <%= form.submit 'Report' %>
     </div>
   <% end %>
+  </div>
+  <div class="map-container"></div>
 </div>

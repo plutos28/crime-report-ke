@@ -6,6 +6,10 @@
     /* font-family: 'Work Sans', sans-serif; */
 }
 
+body {
+    overflow: hidden; /* Prevents scrolling */
+}
+
 
 /* nav */
 nav {
@@ -48,6 +52,44 @@ nav {
     font-weight: bold;
     
 }
+
+/* Logged in nav */
+.logged-in-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 28px; */
+    /* padding-bottom: 28px; */
+    height: 48px;
+    background-color: #045137;
+}
+
+.logged-in-nav-left-side {
+
+}
+
+.logged-in-nav-right-side {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
+
+.logged-in-nav-right-side .logged-in-nav-right-side-link {
+    color: #f4fffa;
+}
+
+.logged-in-nav-right-side .logged-in-nav-right-side-link-spacing {
+    margin-right: 16px;
+}
+
+.logged-in-nav-brand-link {
+    font-size: 20px;
+    font-family: 'DM Sans', sans-serif;
+    color: #f4fffa;
+    font-weight: bold;
+    margin-left: 52px;
+}
+
 
 a {
     /* Remove text decoration */
@@ -287,6 +329,49 @@ hr {
     padding: 0;
 }
 
+.about-page {
+    padding-left: 259px;
+    padding-right: 259px; 
+    width: 45em;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.about-page h1 {
+    font-size: 32px;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+}
+
+.about-page-img {
+    width: 800px;
+    height: 500px;
+    background-size: cover;
+    background-image: url(<%= asset_path 'fight_crime.jpg' %>);
+}
+
+.about-page p {
+    font-size: 16px;
+    color: #404040;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 15px;
+}
+
+.about-page h2 {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+}
+
+.about-page li {
+    font-size: 16px;
+    color: #404040;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 15px;
+}
+
 .text-section1 {
 
     margin-top: 73px;
@@ -354,11 +439,13 @@ hr {
     background-image: url(<%= asset_path 'crime.webp' %>);
 }
 
+.side-panel-with-map {
+    display: flex;
+    height: 100vh;
+}
+
 .report-form-container {
-    padding-left: 166px;
-    margin-top: 73px;
-    margin-bottom: 73px;
-    padding-right: 166px;
+    width: 350px;
 }
 
 .report-form-container h1 {
@@ -393,6 +480,12 @@ hr {
     margin-top: 21px;
     width: 100px;
     border: none;
+}
+
+.map-container {
+    background-image: url(<%= asset_path 'hero.jpg' %>);
+    width: 100%;
+    background-size: cover;
 }
 
 #map { 
