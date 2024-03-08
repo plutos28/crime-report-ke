@@ -16,45 +16,40 @@
 </div>
 
 <div class="side-panel-with-map">
-  <!-- <turbo-frame id="reports-area"> -->
-    <div class="report-form-container">
+  <div class="report-form-container">
+    <turbo-frame id="reports-area">
       <h1>Report a Crime</h1>
       <h2>Reporting a Crime: Your Information Can Make a Difference - Help Us Keep Our Community Safe by Providing Details About Incidents You've Witnessed or Experienced.</h2>
       <%= link_to "Check Reports", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
-
       <hr>
+
+      <%= form_with(model: @report, local: true) do |form| %>
+      <div>
+        <%= form.label :title %> <br>
+        <%= form.text_field :title, class: "normal-input" %>
+      </div>
   
-      <turbo-frame id="reports-area">
-        <%= form_with(model: @report, local: true) do |form| %>
-        <div>
-          <%= form.label :title %> <br>
-          <%= form.text_field :title, class: "normal-input" %>
-        </div>
-    
-        <div  style="margin-top: 20px;">
-          <%= form.label :description %><br>
-          <%= form.text_area :description, class: "normal-input", style: "width: 300px; height: 250px;" %>
-        </div>
-    
-        <div style="margin-top: 20px;">
-          <%= form.label :photo %><br>
-          <%= form.file_field :photo %>
-        </div>
-    
-        <div style="margin-top: 20px;">
-          <%= form.label :type_of_crime %>
-          <%= form.select :type_of_crime, options_for_select(@crimes) %>
-        </div>
-    
-    
-        <div>
-          <%= form.submit 'Report' %>
-        </div>
-        <% end %>
-      </turbo-frame>
-    </div>
-  <!-- </turbo-frame> -->
+      <div  style="margin-top: 20px;">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, class: "normal-input", style: "width: 300px; height: 250px;" %>
+      </div>
   
-  <!-- <div class="map-container"></div> -->
+      <div style="margin-top: 20px;">
+        <%= form.label :photo %><br>
+        <%= form.file_field :photo %>
+      </div>
+  
+      <div style="margin-top: 20px;">
+        <%= form.label :type_of_crime %>
+        <%= form.select :type_of_crime, options_for_select(@crimes) %>
+      </div>
+  
+  
+      <div>
+        <%= form.submit 'Report' %>
+      </div>
+      <% end %>
+    </turbo-frame>
+  </div>
   <div id="map"></div>
 </div>

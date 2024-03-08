@@ -1,3 +1,4 @@
+<turbo-frame id="reports-area">
 <main>
     <h1><%= @report.title %></h1>
     <p><%= @report.description %></p>
@@ -5,3 +6,4 @@
     <p>Reported at: <%= @report.created_at.strftime("%B %d, %Y %H:%M") %></p>
     <p>Type of crime: <%= @report.type_of_crime %></p>
 </main>
+<turbo-frame>

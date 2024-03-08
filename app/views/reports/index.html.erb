@@ -1,6 +1,9 @@
 <div class="logged-in-nav">
   <div class="logged-in-nav-left-side">
-    <%= link_to "Crime Report | KE", root_path, class: "logged-in-nav-brand-link" %>
+    <%= link_to "Crime Report | KE", new_report_path, class: "logged-in-nav-brand-link" %>
+    <%= link_to "Report a crime", new_report_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;", data: { turbo_frame: "reports-area" } %>
+    <%= link_to "Check Reports", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;",  data: { turbo_frame: "reports-area" } %>
+    <%= link_to "Data Dashboard", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
   </div>
   <div class="logged-in-nav-right-side">
     <% if user_signed_in? %>
@@ -12,22 +15,23 @@
   </div>
 </div>
 
-<turbo-frame id="reports-area">
-  <div class="reports-page-container">
-    <div class="reports-list">
-      <h1>All Reports</h1>
+<div class="side-panel-with-map">
+  <div class="report-form-container">
+    <turbo-frame id="reports-area">
+      <div>
+          <div class="reports-list">
+            <h1>All Reports</h1>
 
-      <ul>
-        <% @reports.each do |report| %>
-          <li>
-            <%= link_to report.title, report_path(report) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  
-    <div id="map"></div>
-
+            <ul>
+              <% @reports.each do |report| %>
+                <li>
+                  <%= link_to report.title, report_path(report) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </turbo-frame>
   </div>
-</turbo-frame>
-
+  <div id="map"></div>
+</div>
