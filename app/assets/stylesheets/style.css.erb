@@ -444,15 +444,24 @@ hr {
 }
 
 .report-form-container {
+    padding: 0 24px;
     width: 350px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     z-index: 1;
+}
+
+.report-form-container .normal-input {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: 0 solid  rgb(229, 229, 229);
+    padding: 6px 18px;
+    border-radius: calc(0.5rem - 2px);
 }
 
 .report-form-container h1 {
     font-size: 24px;
     color: #1a1a1a;
     margin-bottom: 22px;
+    margin-top: 54px;
 }
 
 .report-form-container h2 {
@@ -464,10 +473,12 @@ hr {
 }
 
 .report-form-container label {
-    font-size: 16px;
+    font-size: 14px;
     color: #404040;
     line-height: 1.5;
     font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
 .report-form-container input[type="submit"] {
@@ -481,6 +492,34 @@ hr {
     margin-top: 21px;
     width: 100px;
     border: none;
+}
+
+.report-form-container input[type="file"] {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: 0 solid  rgb(229, 229, 229);
+    padding: 6px 18px;
+    width: 200px;
+    border-radius: calc(0.5rem - 2px);
+}
+
+.report-form-container input[type="file"]::file-selector-button {
+    background-color: #404040;
+    padding: 9px 20px;
+    border-radius: 10px;
+    color: #f1f9f6;
+    font-size: 16px;
+    /* margin-top: 27px; */
+    display: block;
+    margin-top: 21px;
+    width: 150px;
+    border: none;
+}
+
+.report-form-container select {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: 0 solid  rgb(229, 229, 229);
+    padding: 6px 18px;
+    border-radius: calc(0.5rem - 2px);
 }
 
 .map-container {
