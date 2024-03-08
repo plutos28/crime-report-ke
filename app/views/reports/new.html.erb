@@ -1,6 +1,6 @@
 <div class="logged-in-nav">
   <div class="logged-in-nav-left-side">
-    <%= link_to "Crime Report | KE", root_path, class: "logged-in-nav-brand-link" %>
+    <%= link_to "Crime Report | KE", new_report_path, class: "logged-in-nav-brand-link" %>
   </div>
   <div class="logged-in-nav-right-side">
     <% if user_signed_in? %>
@@ -48,5 +48,6 @@
     </div>
   <% end %>
   </div>
-  <div class="map-container"></div>
+  <!-- <div class="map-container"></div> -->
+  <div id="map"></div>
 </div>
