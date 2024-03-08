@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/dashboard", to: "pages#dashboard"
 
-  resources :reports
+  resources :reports do
+    get 'map_data', on: :collection
+  end
 end

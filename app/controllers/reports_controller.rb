@@ -58,9 +58,14 @@ class ReportsController < ApplicationController
     def show
       @report = Report.find(params[:id])
     end
+
+    def map_data
+      @reports = Report.all
+      render json: @reports.to_json(only: [:title, :type_of_crime, :latitude, :longitude])
+    end
     
     private
       def report_params
-        params.require(:report).permit(:title, :description, :photo, :type_of_crime)
+        params.require(:report).permit(:title, :description, :photo, :type_of_crime, :latitude, :longitude)
       end
 end

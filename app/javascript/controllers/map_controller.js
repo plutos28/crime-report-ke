@@ -4,8 +4,33 @@ export default class extends Controller {
     connect() {
         console.log("Hello, leaflet map!", this.element);
         
-        let latInput = document.querySelector("#report_latitude");
-        let longInput = document.querySelector("#report_longitude");
+        let latInput;
+        let longInput;
+
+        document.addEventListener('turbo:frame-load', function(event) {
+            latInput = document.querySelector("#report_latitude");
+            longInput = document.querySelector("#report_longitude");
+            
+            console.log(latInput);
+            console.log(longInput);
+
+            fetch("/reports/map_data")
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(report => {
+                    if(report.latitude != null && report.longitude != null) {
+                        L.marker([report.latitude, report.longitude]).addTo(map)
+                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p>`);
+                    }
+                });
+            });
+
+        });
+
+        latInput = document.querySelector("#report_latitude");
+        longInput = document.querySelector("#report_longitude");
+        console.log(latInput);
+        console.log(longInput);
 
         var map = L.map('map').setView([-1.2921, 36.8219], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -14,10 +39,21 @@ export default class extends Controller {
         }).addTo(map);
     
         // TODO: Ask the server for a list of lats and lons of crimes and add markers for all of them on the map
+        fetch("/reports/map_data")
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(report => {
+                    if(report.latitude != null && report.longitude != null) {
+                        L.marker([report.latitude, report.longitude]).addTo(map)
+                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p>`);
+                    }
+                });
+            });
+
         var marker = L.marker([-1.2921, 36.8219]).addTo(map);
         marker.bindPopup("<b>Crime Report:</b><br>guns fired").openPopup();
 
-        // TODO: Users Can click on map and specify that's where the crime occured, anytime the user clicks, this should be reflected on two fields lat and longitude
+        // Users Can click on map and specify that's where the crime occured, anytime the user clicks, this should be reflected on two fields lat and longitude
         map.on('click', function(e) {        
             var popLocation= e.latlng;
             var popup = L.popup()
