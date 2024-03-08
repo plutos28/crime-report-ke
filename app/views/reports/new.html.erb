@@ -3,7 +3,7 @@
     <%= link_to "Crime Report | KE", new_report_path, class: "logged-in-nav-brand-link" %>
     <%= link_to "Report a crime", new_report_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
     <%= link_to "Check Reports", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;",  data: { turbo_frame: "reports-area" } %>
-    <%= link_to "Data Dashboard", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
+    <%= link_to "Data Dashboard", dashboard_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;", data: { turbo_frame: "page-template" } %>
   </div>
   <div class="logged-in-nav-right-side">
     <% if user_signed_in? %>
@@ -15,6 +15,7 @@
   </div>
 </div>
 
+<turbo-frame id="page-template">
 <div class="side-panel-with-map">
   <div class="report-form-container">
     <turbo-frame id="reports-area">
@@ -53,3 +54,4 @@
   </div>
   <div id="map"></div>
 </div>
+</turbo-frame>

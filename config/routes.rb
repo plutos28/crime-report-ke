@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root "pages#index"
 
   get "/about", to: "pages#about"
+  get "/dashboard", to: "pages#dashboard"
 
   resources :reports
 end
