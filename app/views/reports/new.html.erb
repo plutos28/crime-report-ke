@@ -44,7 +44,15 @@
         <%= form.label :type_of_crime %>
         <%= form.select :type_of_crime, options_for_select(@crimes) %>
       </div>
-  
+
+      <div style="margin-top: 20px;">
+        <%= form.label :latitude %><br>
+        <%= form.text_field :latitude, class: "normal-input", readonly: true  %>
+      </div>
+      <div style="margin-top: 20px;">
+        <%= form.label :longitude %><br>
+        <%= form.text_field :longitude, class: "normal-input", readonly: true  %>
+      </div>
   
       <div>
         <%= form.submit 'Report' %>
