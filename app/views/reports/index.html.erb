@@ -12,19 +12,22 @@
   </div>
 </div>
 
-<div class="reports-page-container">
-  <div class="reports-list">
-    <h1>All Reports</h1>
+<turbo-frame id="reports-area">
+  <div class="reports-page-container">
+    <div class="reports-list">
+      <h1>All Reports</h1>
 
-    <ul>
-      <% @reports.each do |report| %>
-        <li>
-          <%= link_to report.title, report_path(report) %>
-        </li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @reports.each do |report| %>
+          <li>
+            <%= link_to report.title, report_path(report) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  
+    <div id="map"></div>
+
   </div>
- 
-   <div id="map"></div>
+</turbo-frame>
 
-</div>

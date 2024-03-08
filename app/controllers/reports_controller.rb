@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
     def create
       @report = Report.new(report_params)
       if @report.save
-          redirect_to @report, notice: 'Report was successfully created.'
+          redirect_to reports_path, notice: 'Report was successfully created.'
       else
           render :new, status: :unprocessable_entity
       end
