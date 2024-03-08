@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-document.addEventListener('turbo:load', function(event) {
+document.addEventListener('turbo:render', function(event) {
  
 });
   
