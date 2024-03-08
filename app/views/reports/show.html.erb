@@ -1,9 +1,10 @@
 <turbo-frame id="reports-area">
-<main>
-    <h1><%= @report.title %></h1>
-    <p><%= @report.description %></p>
-    <%= image_tag @report.photo if @report.photo.attached? %>
-    <p>Reported at: <%= @report.created_at.strftime("%B %d, %Y %H:%M") %></p>
-    <p>Type of crime: <%= @report.type_of_crime %></p>
-</main>
+    <div class="crime-report">
+        <h1><%= @report.title %></h1>
+        <p><%= @report.description %></p>
+        <%= image_tag @report.photo if @report.photo.attached? %>
+        <p>Reported at: <%= @report.created_at.strftime("%B %d, %Y %H:%M") %></p>
+        <p>Type of crime: <%= @report.type_of_crime %></p>
+    </div>
+    
 <turbo-frame>

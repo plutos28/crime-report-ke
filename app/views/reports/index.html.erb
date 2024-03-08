@@ -21,14 +21,15 @@
       <div>
           <div class="reports-list">
             <h1>All Reports</h1>
-
-            <ul>
+            <div>
               <% @reports.each do |report| %>
-                <li>
-                  <%= link_to report.title, report_path(report) %>
-                </li>
+                <div class="report-card">
+                  <%= link_to report.title, report_path(report), style: "font-weight: bold; font-size: 18px" %>
+                  <p><%= report.type_of_crime %></p>
+                  <p><%= report.created_at.strftime("%B %d, %Y") %></p>
+                </div>
               <% end %>
-            </ul>
+            </div>
           </div>
       </div>
     </turbo-frame>
