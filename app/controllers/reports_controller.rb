@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
 
     def map_data
       @reports = Report.all
-      render json: @reports.to_json(only: [:title, :type_of_crime, :latitude, :longitude])
+      render json: @reports.to_json(only: [:title, :type_of_crime, :latitude, :longitude], methods: [:photo_url])
     end
     
     private

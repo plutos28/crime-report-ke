@@ -1,10 +1,9 @@
 <turbo-frame id="reports-area">
-    <div class="crime-report">
+    <div data-controller="map" class="crime-report">
         <h1><%= @report.title %></h1>
         <p><%= @report.description %></p>
         <%= image_tag @report.photo if @report.photo.attached? %>
         <p>Reported at: <%= @report.created_at.strftime("%B %d, %Y %H:%M") %></p>
         <p>Type of crime: <%= @report.type_of_crime %></p>
     </div>
-    
 <turbo-frame>

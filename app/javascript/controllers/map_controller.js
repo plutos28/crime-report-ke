@@ -44,14 +44,18 @@ export default class extends Controller {
             .then(data => {
                 data.forEach(report => {
                     if(report.latitude != null && report.longitude != null) {
+                        L.circle({lat: report.latitude, lng: report.longitude}, {
+                            color: 'steelblue',
+                            radius: 500,
+                            fillColor: 'red',
+                            opacity: 0.5
+                        }).addTo(map)
+
                         L.marker([report.latitude, report.longitude]).addTo(map)
-                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p>`);
+                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p> <br> <img style="width: 150px;height: 150px;" src='${report.photo_url}'>`);
                     }
                 });
             });
-
-        var marker = L.marker([-1.2921, 36.8219]).addTo(map);
-        marker.bindPopup("<b>Crime Report:</b><br>guns fired").openPopup();
 
         // Users Can click on map and specify that's where the crime occured, anytime the user clicks, this should be reflected on two fields lat and longitude
         map.on('click', function(e) {        
