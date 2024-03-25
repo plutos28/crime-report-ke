@@ -19,8 +19,15 @@ export default class extends Controller {
             .then(data => {
                 data.forEach(report => {
                     if(report.latitude != null && report.longitude != null) {
+                        L.circle({lat: report.latitude, lng: report.longitude}, {
+                            color: 'steelblue',
+                            radius: 500,
+                            fillColor: 'red',
+                            opacity: 0.5
+                        }).addTo(map)
+
                         L.marker([report.latitude, report.longitude]).addTo(map)
-                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p>`);
+                        .bindPopup(`<p>${report.title}<br>Crime Commited: ${report.type_of_crime}</p> <br> <img style="width: 150px;height: 150px;" src='${report.photo_url}'>`);
                     }
                 });
             });
