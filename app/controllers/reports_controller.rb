@@ -55,6 +55,16 @@ class ReportsController < ApplicationController
       end
     end
 
+    def crime_counts_by_type
+      # Query the database to get counts of each type of crime
+      crime_counts = Report.group(:type_of_crime).count
+
+      formatted_data = crime_counts.map { |type, count| { year: type, count: count } }
+    
+      # Convert the hash to JSON
+      render json: formatted_data
+    end
+
     def show
       @report = Report.find(params[:id])
     end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/dashboard", to: "pages#dashboard"
 
+  get '/crime_counts', to: 'reports#crime_counts_by_type', as: 'crime_counts'
+
   resources :reports do
     get 'map_data', on: :collection
   end
