@@ -58,4 +58,25 @@ ActiveAdmin.register Report do
 
     send_data csv_data, filename: "reports.csv"
   end
+
+  action_item :generate_pdf, only: :index do
+    link_to 'Generate PDF Report', generate_pdf_admin_reports_path(format: :pdf)
+  end
+
+  collection_action :generate_pdf, method: :get do
+    require 'prawn'
+
+    pdf = Prawn::Document.new
+    pdf.text "Reports", align: :center, size: 20, style: :bold
+    pdf.move_down 20
+
+    Report.all.each do |report|
+      pdf.text "Title: #{report.title}", size: 14
+      pdf.text "Description: #{report.description}", size: 12
+      pdf.text "Type of Crime: #{report.type_of_crime}", size: 12
+      pdf.move_down 10
+    end
+
+    send_data pdf.render, filename: "reports.pdf", type: "application/pdf"
+  end
 end

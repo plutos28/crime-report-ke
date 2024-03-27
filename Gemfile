@@ -75,3 +75,5 @@ gem "sassc", "~> 2.4"
 gem "tailwindcss-rails", "~> 2.3"
 
 gem "foreman", "~> 0.87.2"
+
+gem "prawn", "~> 2.5"
