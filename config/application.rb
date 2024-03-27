@@ -21,11 +21,7 @@ module CrimeReportKe
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = "Nairobi"
+    # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    Rails.configuration.to_prepare do
-      require_relative '../ext/active_storage/ransackable_attachment'
-    end
   end
 end
