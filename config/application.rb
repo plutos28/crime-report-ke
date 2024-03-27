@@ -23,5 +23,12 @@ module CrimeReportKe
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = "Nairobi"
+    config.assets.enabled = true
+
+
+    # Rails.configuration.to_prepare do
+    #   require_relative '../ext/active_storage/ransackable_attachment'
+    # end
   end
 end
