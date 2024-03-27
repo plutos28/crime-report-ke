@@ -1,3 +1,10 @@
+<% if flash[:alert].present? %>
+  <div id="error_explanation">
+    <h2 class="_text-red-500"><%= flash[:alert] %></h2>
+  </div>
+<% end %>
+
+
 <div class="login-page">
   <% if resource_name == :admin %>
       <%= link_to "Crime Report | KE Admin", root_path, class: "login-page-brand-link" %>

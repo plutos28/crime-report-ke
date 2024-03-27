@@ -7,32 +7,38 @@
     <h2 class="login-page-form-title">Sign up for an account</h2>
   <% end %>
   
+<div class="_flex _flex_col">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field input-block">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-text", required: true %>
-      <span class="placeholder">Email</span>
-    </div>
+    <div class="_text-red-500"><%= render "devise/shared/error_messages", resource: resource %></div>
 
-    <div class="field input-block input-block-password">
-      
-      <%= f.password_field :password, autocomplete: "new-password", class: "input-text", required: true %>
-      <span class="placeholder">Password</span>
-    </div>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <div class="_flex _flex-col _justify_center _w-[350px]">
+      <div class="field input-block">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-text" %>
+        <span class="placeholder">Email</span>
+      </div>
 
-    <div class="field input-block input-block-password">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-text password-confirm", required: true %>
-      <span class="placeholder">Password Confirmation</span>
-    </div>
+      <div class="field input-block input-block-password">
+        
+        <%= f.password_field :password, autocomplete: "new-password", class: "input-text" %>
+        <span class="placeholder">Password</span>
+      </div>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
 
-    <div class="actions login-page-submit-block">
+      <div class="field input-block input-block-password">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-text password-confirm" %>
+        <span class="placeholder">Password Confirmation</span>
+      </div>
+
+      <div class="actions login-page-submit-block _flex _flex-col _items-center">
       <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
+      <%= render "devise/shared/links" %>
 
-  <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
 </div>
