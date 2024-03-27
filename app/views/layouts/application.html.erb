@@ -19,7 +19,7 @@
   </head>
 
   <body>
-      <% if !devise_controller? %>
+      <% if !devise_controller? && !admin_signed_in? %>
         <!-- Render navigation only if not on login or signup pages -->
         <nav>
             <div class="nav-left-side">
