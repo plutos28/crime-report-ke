@@ -40,4 +40,22 @@ ActiveAdmin.register Report do
       end
     end
   end
+
+  action_item :generate_csv, only: :index do
+    link_to 'Generate Report', generate_csv_admin_reports_path(format: :csv)
+  end
+
+  collection_action :generate_csv, method: :get do
+    require 'csv'
+
+    data = Report.all
+    csv_data = CSV.generate(headers: true) do |csv|
+      csv << data.column_names
+      data.each do |record|
+        csv << record.attributes.values
+      end
+    end
+
+    send_data csv_data, filename: "reports.csv"
+  end
 end
