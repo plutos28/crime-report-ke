@@ -2,11 +2,11 @@ class ReportsController < ApplicationController
     before_action :authenticate_user!
 
     def index 
-        @reports = Report.all
+        @reports = Report.order(created_at: :desc)
     end
 
     def new
-        @report = Report.new
+        @report = Report.new(status: 'pending')
         @crimes = [
           # Violent Crimes
           "Assault",
@@ -76,6 +76,6 @@ class ReportsController < ApplicationController
     
     private
       def report_params
-        params.require(:report).permit(:title, :description, :photo, :type_of_crime, :latitude, :longitude)
+        params.require(:report).permit(:title, :description, :photo, :type_of_crime, :latitude, :longitude, :phone_number, :status)
       end
 end

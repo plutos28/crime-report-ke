@@ -17,13 +17,15 @@ ActiveAdmin.register Report do
 
   actions :index, :edit, :update, :create, :destroy
 
-  permit_params :title, :description, :photo, :type_of_crime
+  permit_params :title, :description, :photo, :type_of_crime, :phone_number, :status
   form do |f|
     f.inputs 'Report Details' do
       f.input :title
       f.input :description
       f.input :type_of_crime
       f.input :photo, as: :file
+      f.input :phone_number
+      f.input :status
     end
     f.actions
   end
@@ -42,7 +44,7 @@ ActiveAdmin.register Report do
   end
 
   action_item :generate_csv, only: :index do
-    link_to 'Generate Report', generate_csv_admin_reports_path(format: :csv)
+    link_to 'Generate Report', generate_csv_admin_reports_path(format: :csv), class: "_block _px-4 _py-5 _bg-red-500"
   end
 
   collection_action :generate_csv, method: :get do

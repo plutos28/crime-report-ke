@@ -11,12 +11,19 @@
 // @import "active_admin/mixins";
 // @import "active_admin/base";
 
-@import "normalize.css";
+// @import "normalize.css";
 
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+// active_admin.scss
+
+@import "./application.tailwind.css";
+
+// Other Active Admin styles
+
 
 #wrapper {
     font-family: 'DM Sans', sans-serif;

@@ -5,6 +5,9 @@ class Report < ApplicationRecord
   validates :description, presence: true
   validates :type_of_crime, presence: true
 
+  enum status: { pending: 'pending', in_progress: 'in_progress', resolved: 'resolved' }
+
+
   def self.ransackable_associations(auth_object = nil)
     ['photo_attachment', 'photo_blob']
   end
