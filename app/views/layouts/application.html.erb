@@ -14,14 +14,28 @@
     <%= stylesheet_link_tag "style", media: "all" %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+      <% if !devise_controller? %>
+        <!-- Render navigation only if not on login or signup pages -->
+        <nav>
+            <div class="nav-left-side">
+                <%= link_to "Crime Report | KE", root_path, class: "nav-brand-link" %>
+            </div>
+            <div class="nav-right-side">
+                <%= link_to "About", about_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <% if user_signed_in? %>
+                      <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
+                      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-right-side-link" %>
+                <% else %>
+                    <%= link_to 'Sign in', new_user_session_path, class: "nav-right-side-link nav-right-link-spacing sign-in-btn" %>
+                <% end %>
+            </div>
+        </nav>
+      <% end %>
       <%= yield %>
-    </main>
   </body>
 </html>
