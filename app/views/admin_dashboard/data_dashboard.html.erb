@@ -9,7 +9,6 @@
 
     </div>
     <div>
-      <a href="#" class="bg-green-600 inline-block text-xl px-8 py-4 mr-8 leading-none border rounded text-white border-black">Generate Report</a>
       <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: "text-xl hover:text-red-500" %>
     </div>
   </div>
@@ -17,12 +16,21 @@
 
 <div>
   <turbo-frame id="page-template">
-    <div class="dashboard">
-        <h1>Data Dashboard</h1>
+    <h1 class="pl-10 mt-8">Data Dashboard</h1>
+    <div class="flex px-10">
+      <div class="mr-8">
         <p style="font-weight: bold; font-size: 24px;">Types of crimes</p>
         <div data-controller="chart" style="width: 800px;">
             <canvas id="acquisitions"></canvas>
         </div>
+      </div>
+      <div>
+        <p style="font-weight: bold; font-size: 24px;">Crimes by Dates</p>
+        <div data-controller="chart2" style="width: 800px;">
+                <canvas id="second_chart"></canvas>
+        </div>
+      </div>
     </div>
+    
 </turbo-frame>
 </div>

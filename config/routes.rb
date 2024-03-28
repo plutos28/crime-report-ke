@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :reports do
     get 'map_data', on: :collection
+    get 'crime_counts_by_date', on: :collection
   end
   
   post 'status_changer/:id/update_status', to: 'status_changer#update_status'

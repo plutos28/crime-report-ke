@@ -75,3 +75,5 @@ gem "cancancan", "~> 3.5"
 gem "prawn", "~> 2.5"
 
 gem "letter_opener", "~> 1.9"
+
+gem "mailcatcher", "~> 0.2.4"

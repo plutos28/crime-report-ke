@@ -72,6 +72,12 @@ class ReportsController < ApplicationController
     render json: formatted_data
   end
 
+  def crime_counts_by_date
+    crime_counts = Report.group("DATE(created_at)").count
+    formatted_data = crime_counts.map { |date, count| { date: date, count: count } }
+    render json: formatted_data
+  end
+
   def show
     @report = Report.find(params[:id])
   end
