@@ -39,8 +39,15 @@
                 <%= link_to "Crime Report | KE", root_path, class: "nav-brand-link" %>
             </div>
             <div class="nav-right-side">
-                <%= link_to 'Report a crime', new_report_path, class: "nav-right-side-link nav-right-link-spacing" %>
-                <%= link_to "Check Reports", reports_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <% if user_signed_in? %>
+                  <%= link_to 'Report a crime', new_report_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                  <%= link_to "Check Reports", reports_path, class: "nav-right-side-link nav-right-link-spacing" %>
+                <% else %>
+                  <a href="#" class="nav-right-side-link nav-right-link-spacing">Report a crime</a>
+                  <a href="#" class="nav-right-side-link nav-right-link-spacing">Check Reports</a>
+                <% end %>
+                
+
                 <%= link_to "About", about_path, class: "nav-right-side-link nav-right-link-spacing" %>
                 <% if user_signed_in? %>
                       <p class="nav-right-side-link nav-right-link-spacing">Welcome, <%= current_user.email %></p>
