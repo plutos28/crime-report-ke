@@ -26,6 +26,7 @@
       <%= form_with(model: @report, local: true) do |form| %>
         <%= form.hidden_field :user_id, value: current_user.id %>
 
+      <%= form.submit 'Report', class: "flex justify-center	mb-4 px-16 py-4 text-center" %>
 
       <div>
         <%= form.label :title %> <br>
@@ -42,32 +43,22 @@
         <%= form.file_field :photo %>
       </div>
   
-      <%
-=begin%>
- <div style="margin-top: 20px;">
+      
+      <div style="margin-top: 20px;">
         <%= form.label :type_of_crime %>
         <%= form.select :type_of_crime, options_for_select(@crimes) %>
       </div> 
-<%
-=end%>
 
-       <div style="margin-top: 20px;">
-        <%= form.label :phone_number %>
+
+      <div class="mb-[100px]" style="margin-top: 20px;">
+        <%= form.label :phone_number %><br>
         <%= form.telephone_field :phone_number, class: "normal-input" %>
       </div>
 
-      <div style="margin-top: 20px;">
-        <%= form.label :latitude %><br>
-        <%= form.text_field :latitude, class: "normal-input", readonly: true  %>
-      </div>
-      <div style="margin-top: 20px;">
-        <%= form.label :longitude %><br>
-        <%= form.text_field :longitude, class: "normal-input", readonly: true  %>
-      </div>
+      <%= form.hidden_field  :latitude, class: "normal-input", readonly: true  %>
+      <%= form.hidden_field  :longitude, class: "normal-input", readonly: true  %>
   
-      <div>
-        <%= form.submit 'Report' %>
-      </div>
+      
       <% end %>
     </turbo-frame>
   </div>

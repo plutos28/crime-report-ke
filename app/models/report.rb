@@ -4,7 +4,7 @@ class Report < ApplicationRecord
 
   # validates :title, presence: true
   # validates :description, presence: true
-  # # validates :type_of_crime, presence: true
+  # validates :type_of_crime, presence: true
   # validates :phone_number, presence: true, format: { with: /\A\d{10}\z/, message: "must be a valid 10-digit phone number" }
   # validates :status, presence: true, inclusion: { in: %w[pending in_progress resolved] }
 
