@@ -50,10 +50,11 @@
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.longitude ?  report.longitude : 'n/a' %></td>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.latitude ?  report.longitude : 'n/a' %></td>
         <!-- Add other columns for report attributes as needed -->
-        <td class="whitespace-nowrap px-4 py-2">
-          <%= link_to 'View', report_path(report), class: 'inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700' %>
-          <%= link_to 'Edit', edit_report_path(report), class: 'inline-block rounded bg-yellow-500 px-4 py-2 text-xs font-medium text-white hover:bg-yellow-600' %>
-          <%= link_to 'Delete', report_path(report), method: :delete, data: { confirm: 'Are you sure?' }, class: 'inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700' %>
+        <td class="whitespace-nowrap px-4 py-2 flex">
+          <%= link_to 'Edit', edit_report_path(report), class: 'inline-block mr-4 rounded bg-yellow-500 px-4 py-2 text-xs font-medium text-white hover:bg-yellow-600' %>
+          <%= form_with(model: report, method: :delete, url: report_path(report), data: { confirm: 'Are you sure?' }) do |form| %>
+            <%= form.submit 'Delete', class: 'inline-block rounded bg-red-600 px-4 py-2 text-xs border-none font-medium text-white hover:bg-red-700' %>
+          <% end %>
         </td>
       </tr>
     <% end %>

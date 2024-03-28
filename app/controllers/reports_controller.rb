@@ -53,6 +53,47 @@ class ReportsController < ApplicationController
     end
   end
 
+  def edit
+    @report = Report.find(params[:id])
+    @crimes = [
+      # Violent Crimes
+      "Assault",
+      "Battery",
+      "Homicide",
+      "Robbery",
+      "Sexual Assault",
+      "Kidnapping",
+    
+      # Property/Theft Crimes
+      "Burglary",
+      "Theft",
+      "Shoplifting",
+      "Auto Theft",
+      "Arson",
+      "Vandalism",
+    
+      # Disorder/Disturbance Crimes
+      "Public Intoxication",
+      "Disorderly Conduct",
+      "Disturbing the Peace",
+      "Trespassing",
+      "Loitering",
+      "Illegal Parking",
+    
+      # 911-related Incidents
+      "Emergency Medical Assistance",
+      "Fire",
+      "Domestic Violence",
+      "Traffic Accident",
+      "Suspicious Activity",
+      "Missing Person",
+    
+      # Crimes related to Cars
+      "Hit and Run"
+    ]
+  end
+
+
   def update
     @report = Report.find(params[:id])
     if @report.update(report_params)
@@ -80,6 +121,18 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+  end
+
+  def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+    redirect_back fallback_location: reports_path, notice: 'Report was successfully deleted.'
+  end
+
+  def email_report
+    @report = Report.find(params[:id])
+    UserMailer.send_report_email(@report).deliver_now
+    redirect_back fallback_location: reports_path, notice: 'Report was successfully emailed.'
   end
 
   def map_data
