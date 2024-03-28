@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latest Crime Reports</title>
+</head>
+<body>
+  <h1>Latest Crime Reports</h1>
+  <p>Here are the latest crime reports:</p>
+  <ul>
+    <% @reports.each do |report| %>
+      <li><%= report.title %>: <%= report.description %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

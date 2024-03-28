@@ -46,9 +46,19 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     if @report.save
+        UserMailer.crime_reports_email(Report.all).deliver_now
         redirect_to reports_path, notice: 'Report was successfully created.'
     else
         render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    if @report.update(report_params)
+      redirect_to reports_path, notice: 'Report was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

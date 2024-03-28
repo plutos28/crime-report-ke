@@ -73,3 +73,5 @@ gem "devise", "~> 4.9"
 gem "cancancan", "~> 3.5"
 
 gem "prawn", "~> 2.5"
+
+gem "letter_opener", "~> 1.9"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'status_changer/update_status'
   get '/admin_dashboard', to: 'admin_dashboard#index', as: 'admin_dashboard'
   get '/admin_dashboard/data', to: 'admin_dashboard#data_dashboard', as: 'admin_data'
   devise_for :admins
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   resources :reports do
     get 'map_data', on: :collection
   end
+  
+  post 'status_changer/:id/update_status', to: 'status_changer#update_status'
 
   resources :admin_reports, only: [] do 
     collection do

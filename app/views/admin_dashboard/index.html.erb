@@ -44,7 +44,7 @@
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.type_of_crime ?  report.type_of_crime : 'n/a' %></td>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.phone_number.present? ?  report.phone_number : 'n/a' %></td>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-          <%= select_tag "status", options_for_select(["pending", "processing", "completed"], report.status), {data: {action: 'change->status-changer#updateStatus'}} %>
+          <%= report.status.present? ?  report.status : 'n/a' %>
         </td>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.created_at ? time_ago_in_words(report.created_at) : 'n/a' %></td>
         <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.longitude ?  report.longitude : 'n/a' %></td>

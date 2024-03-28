@@ -1,0 +1,7 @@
+# app/views/reports/_status_changer.html.erb
+
+<%= turbo_stream_from "status_changer_#{report.id}" %>
+
+<turbo-stream action="replace" target="status_changer_<%= report.id %>">
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.status ?  report.status : 'n/a' %></td>
+</turbo-stream>
