@@ -8,9 +8,7 @@ class Ability
     cannot :read, Report if user.new_record?
 
     if user.is_a?(User)
-      can :read, Report
-      can :create, Report if user.persisted?
-      
+      can :manage, Report
     end
 
   end

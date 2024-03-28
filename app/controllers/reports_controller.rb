@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
   def index 
       @reports = Report.order(created_at: :desc)
-      authorize! :read, @report
   end
 
   def new
@@ -42,9 +41,6 @@ class ReportsController < ApplicationController
         # Crimes related to Cars
         "Hit and Run"
       ]
-      authorize! :read, @report
-      authorize! :read, @crimes
-      
   end
 
   def create
@@ -68,7 +64,6 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
-    authorize! :read, @report
   end
 
   def map_data
