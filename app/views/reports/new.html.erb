@@ -24,6 +24,9 @@
       <hr>
 
       <%= form_with(model: @report, local: true) do |form| %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+
+
       <div>
         <%= form.label :title %> <br>
         <%= form.text_field :title, class: "normal-input" %>
@@ -39,10 +42,14 @@
         <%= form.file_field :photo %>
       </div>
   
-      <div style="margin-top: 20px;">
+      <%
+=begin%>
+ <div style="margin-top: 20px;">
         <%= form.label :type_of_crime %>
         <%= form.select :type_of_crime, options_for_select(@crimes) %>
-      </div>
+      </div> 
+<%
+=end%>
 
        <div style="margin-top: 20px;">
         <%= form.label :phone_number %>

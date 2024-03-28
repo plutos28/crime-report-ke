@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
     end
 
     def new
-        @report = Report.new(status: 'pending')
+        @report = current_user.reports.build(status: 'pending')
         @crimes = [
           # Violent Crimes
           "Assault",
@@ -43,11 +43,11 @@ class ReportsController < ApplicationController
           # Crimes related to Cars
           "Hit and Run"
         ]
-        
     end
 
     def create
-      @report = Report.new(report_params)
+      @report = current_user.reports.build(report_params)
+
       if @report.save
           redirect_to reports_path, notice: 'Report was successfully created.'
       else
@@ -76,6 +76,6 @@ class ReportsController < ApplicationController
     
     private
       def report_params
-        params.require(:report).permit(:title, :description, :photo, :type_of_crime, :latitude, :longitude, :phone_number, :status)
+        params.require(:report).permit(:title, :description, :photo, :type_of_crime, :latitude, :longitude, :phone_number, :status, :user_id)
       end
 end
