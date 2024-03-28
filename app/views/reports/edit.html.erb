@@ -14,33 +14,47 @@
   </div>
 </nav>
 
-<div class="flex flex-col">
+<div class="flex flex-col px-10 items-center mt-10">
+  
     <h1>Edit a Report</h1>
 
-        <%= form_with(model: @report, local: true) do |form| %>
+    <%= form_with(model: @report, local: true) do |form| %>
 
-        <%= form.label :title %> <br>
-        <%= form.text_field :title, class: "" %>
+    <div>
+      <%= form.label :title %> <br>
+      <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5" %>
+    </div>
 
-        <%= form.label :description %><br>
-        <%= form.text_area :description, class: "", style: "width: 300px; height: 250px;" %>
+    <div  style="margin-top: 20px;">
+      <%= form.label :description %><br>
+      <%= form.text_area :description, class: "normal-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5", style: "width: 300px; height: 250px;" %>
+    </div>
 
-        <%= form.label :photo %><br>
-        <%= form.file_field :photo %>
+    <div style="margin-top: 20px;">
+      <%= form.label :photo %><br>
+      <%= form.file_field :photo %>
+    </div>
+
+    
+    <div style="margin-top: 20px;">
+      <%= form.label :type_of_crime %>
+      <%= form.select :type_of_crime, options_for_select(@crimes) %>
+    </div> 
 
 
-        <%= form.label :type_of_crime %>
-        <%= form.select :type_of_crime, options_for_select(@crimes) %>
+    <div class="mb-[100px]" style="margin-top: 20px;">
+      <%= form.label :phone_number %><br>
+      <%= form.telephone_field :phone_number, class: "normal-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5" %>
+    </div>
 
+    <%= form.hidden_field  :status, class: "normal-input", readonly: true, value: "pending"  %>
+    <%= form.hidden_field  :latitude, class: "normal-input", readonly: true  %>
+    <%= form.hidden_field  :longitude, class: "normal-input", readonly: true  %>
 
-        <%= form.label :phone_number %><br>
-        <%= form.telephone_field :phone_number, class: "" %>
-
-        <%= form.hidden_field  :status, class: "", readonly: true, value: "pending"  %>
-        <%= form.hidden_field  :latitude, class: "", readonly: true  %>
-        <%= form.hidden_field  :longitude, class: "", readonly: true  %>
-
-        <%= form.submit 'Edit Report', class: "" %>
+    <%= form.submit 'Report', class: "flex justify-center	mb-4 px-16 py-4 text-center rounded border-none" %>
+    
     <% end %>
 </div>
+
+
 

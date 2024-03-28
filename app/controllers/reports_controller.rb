@@ -97,7 +97,7 @@ class ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     if @report.update(report_params)
-      redirect_to reports_path, notice: 'Report was successfully updated.'
+      redirect_to admin_dashboard_path, notice: 'Report was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
