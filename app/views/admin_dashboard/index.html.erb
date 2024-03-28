@@ -4,12 +4,9 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block text-xl mt-4 lg:inline-block lg:mt-0 text-green hover:text-green-600 ml-28 mr-28">
-        Data Dashboard
-      </a>
-      <a href="#responsive-header" class="block text-xl mt-4 lg:inline-block lg:mt-0 text-green hover:text-green-600 mr-28">
-        Reports
-      </a>
+      <%= link_to "Data Dashboard", admin_data_path, class: "block text-xl mt-4 lg:inline-block lg:mt-0 text-green hover:text-green-600 ml-28 mr-28" %>
+      <%= link_to "Reports", admin_dashboard_path, class: "block text-xl mt-4 lg:inline-block lg:mt-0 text-green hover:text-green-600 ml-28 mr-28" %>
+
     </div>
     <div>
       <a href="#" class="bg-green-600 inline-block text-xl px-8 py-4 mr-8 leading-none border rounded text-white border-black">Generate Report</a>
