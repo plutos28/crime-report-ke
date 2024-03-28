@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "pages#index"
   get "/about", to: "pages#about"
+  resources :reports do
+    get 'map_data', on: :collection
+  end
 end

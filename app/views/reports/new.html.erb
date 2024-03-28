@@ -1,0 +1,69 @@
+<div class="logged-in-nav">
+  <div class="logged-in-nav-left-side">
+    <%= link_to "Crime Report | KE", new_report_path, class: "logged-in-nav-brand-link" %>
+    <%= link_to "Report a crime", new_report_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
+    <%= link_to "Check Reports", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;",  data: { turbo_frame: "reports-area" } %>
+  </div>
+  <div class="logged-in-nav-right-side">
+    <% if user_signed_in? %>
+      <p class="logged-in-nav-right-side-link logged-in-nav-right-side-link-spacing">Logged In: <%= current_user.email %></p>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "logged-in-nav-right-side-link" %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path, class: "logged-in-nav-right-side-link logged-in-nav-right-link-spacing" %>
+    <% end %>
+  </div>
+</div>
+
+<turbo-frame id="page-template">
+<div class="side-panel-with-map">
+  <div class="report-form-container">
+    <turbo-frame id="reports-area">
+      <h1>Report a Crime</h1>
+      <h2>Reporting a Crime: Your Information Can Make a Difference - Help Us Keep Our Community Safe by Providing Details About Incidents You've Witnessed or Experienced.</h2>
+      <%= link_to "Check Reports", reports_path, class: "logged-in-nav-brand-link", style: "font-size: 16px;" %>
+      <hr>
+
+      <%= form_with(model: @report, local: true) do |form| %>
+      <div>
+        <%= form.label :title %> <br>
+        <%= form.text_field :title, class: "normal-input" %>
+      </div>
+  
+      <div  style="margin-top: 20px;">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, class: "normal-input", style: "width: 300px; height: 250px;" %>
+      </div>
+  
+      <div style="margin-top: 20px;">
+        <%= form.label :photo %><br>
+        <%= form.file_field :photo %>
+      </div>
+  
+      <div style="margin-top: 20px;">
+        <%= form.label :type_of_crime %>
+        <%= form.select :type_of_crime, options_for_select(@crimes) %>
+      </div>
+
+       <div style="margin-top: 20px;">
+        <%= form.label :phone_number %>
+        <%= form.telephone_field :phone_number, class: "normal-input" %>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <%= form.label :latitude %><br>
+        <%= form.text_field :latitude, class: "normal-input", readonly: true  %>
+      </div>
+      <div style="margin-top: 20px;">
+        <%= form.label :longitude %><br>
+        <%= form.text_field :longitude, class: "normal-input", readonly: true  %>
+      </div>
+  
+      <div>
+        <%= form.submit 'Report' %>
+      </div>
+      <% end %>
+    </turbo-frame>
+  </div>
+  <div data-controller="map" id="map"></div>
+</div>
+</turbo-frame>
