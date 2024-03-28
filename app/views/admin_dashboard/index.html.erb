@@ -9,25 +9,28 @@
 
     </div>
     <div>
-      <a href="#" class="bg-green-600 inline-block text-xl px-8 py-4 mr-8 leading-none border rounded text-white border-black">Generate Report</a>
       <%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: "text-xl hover:text-red-500" %>
     </div>
   </div>
 </nav>
 
-<div class="w-3/5">
-  <!--
-  Heads up! 👋
-
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
-  -->
-
-  <div class="overflow-x-auto">
+<div class="ml-6 mt-10">
+  <%= link_to 'Generate CSV Report', generate_csv_admin_reports_path(format: :csv), class: "bg-green-600 inline-block text-xl px-8 py-4 mr-8 leading-none border rounded text-white border-black" %>
+  <%= link_to 'Generate PDF Report', generate_pdf_admin_reports_path(format: :pdf), class: "bg-green-600 inline-block text-xl px-8 py-4 mr-8 leading-none border rounded text-white border-black" %>
+</div>
+<div class="flex justify-start ml-6 mt-24">
+  <div class="w-full overflow-x-auto">
     <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
   <thead class="ltr:text-left rtl:text-right">
     <tr>
-      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Title</th>
-      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Description</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Title</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Description</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Type of Crime</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Phone Number</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Status</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Reported</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Longitude</th>
+      <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-xl">Latitude</th>
       <!-- Add other headers as needed -->
       <th class="px-4 py-2"></th>
     </tr>
@@ -36,8 +39,16 @@
   <tbody class="divide-y divide-gray-200">
     <% @reports.each do |report| %>
       <tr>
-        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"><%= report.title %></td>
-        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.description %></td>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"><%= report.title.present? ?  report.title : 'n/a'%></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.description.present? ?  report.description : 'n/a' %></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.type_of_crime ?  report.type_of_crime : 'n/a' %></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.phone_number.present? ?  report.phone_number : 'n/a' %></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          <%= select_tag "status", options_for_select(["pending", "processing", "completed"], report.status), {data: {action: 'change->status-changer#updateStatus'}} %>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.created_at ? time_ago_in_words(report.created_at) : 'n/a' %></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.longitude ?  report.longitude : 'n/a' %></td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= report.latitude ?  report.longitude : 'n/a' %></td>
         <!-- Add other columns for report attributes as needed -->
         <td class="whitespace-nowrap px-4 py-2">
           <%= link_to 'View', report_path(report), class: 'inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700' %>
@@ -48,7 +59,5 @@
     <% end %>
   </tbody>
 </table>
-
-
   </div>
 </div>

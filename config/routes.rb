@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   devise_for :users
   root "pages#index"
   get "/about", to: "pages#about"
+
+  get '/crime_counts', to: 'reports#crime_counts_by_type', as: 'crime_counts'
+
   resources :reports do
     get 'map_data', on: :collection
+  end
+
+  resources :admin_reports, only: [] do 
+    collection do
+      get 'generate_csv'
+      get 'generate_pdf'
+    end
   end
 end
