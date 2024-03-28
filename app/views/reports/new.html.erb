@@ -24,8 +24,6 @@
       <hr>
 
       <%= form_with(model: @report, local: true) do |form| %>
-        <%= form.hidden_field :user_id, value: current_user.id %>
-
       <%= form.submit 'Report', class: "flex justify-center	mb-4 px-16 py-4 text-center" %>
 
       <div>
@@ -55,6 +53,7 @@
         <%= form.telephone_field :phone_number, class: "normal-input" %>
       </div>
 
+      <%= form.hidden_field  :status, class: "normal-input", readonly: true, value: "pending"  %>
       <%= form.hidden_field  :latitude, class: "normal-input", readonly: true  %>
       <%= form.hidden_field  :longitude, class: "normal-input", readonly: true  %>
   
